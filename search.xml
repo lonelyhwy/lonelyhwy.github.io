@@ -1,6 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>numpy学习笔记</title>
+    <url>/2020/03/05/numpy%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="numpy的基本属性"><a href="#numpy的基本属性" class="headerlink" title="numpy的基本属性"></a>numpy的基本属性</h1><p>今天开始numpy的第一课，首先我们学习如何将一堆数字定义为numpy可以识别的数组，然后对数组的几个基本属性: ndim, shape和size进行简单的尝试，代码如下。</p>
+<a id="more"></a>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">array = np.array([[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],</span><br><span class="line">                [<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]])     <span class="comment">#把一堆数字定义为数组</span></span><br><span class="line"></span><br><span class="line">print(array)</span><br><span class="line">print(<span class="string">'number of dim:'</span>,array.ndim)  <span class="comment"># 维度</span></span><br><span class="line"><span class="comment"># number of dim: 2</span></span><br><span class="line">print(<span class="string">'shape :'</span>,array.shape)    <span class="comment"># 行数和列数</span></span><br><span class="line"><span class="comment"># shape : (2, 3)</span></span><br><span class="line">print(<span class="string">'size:'</span>,array.size)   <span class="comment"># 元素个数</span></span><br><span class="line"><span class="comment"># size: 6</span></span><br></pre></td></tr></table></figure>
+<p>执行效果如下图</p>
+<p><img src="/image/numpy%E6%95%B0%E7%BB%84%E5%B1%9E%E6%80%A7.jpg" alt="数组属性"><br>我们可以看出，这个数组经过处理变成了一个2*3的数组，并且维数为2；行数2，列数为3；元素个数为6。</p>
+<h1 id="numpy创建array"><a href="#numpy创建array" class="headerlink" title="numpy创建array"></a>numpy创建array</h1><p>通过dtype指定array的数据类型</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">a = np.array([<span class="number">2</span>,<span class="number">23</span>,<span class="number">4</span>],dtype=np.int64) <span class="comment">#逗号后面的dtype就是数据类型，int,float等</span></span><br><span class="line">print(a.dtype) <span class="comment">#</span></span><br></pre></td></tr></table></figure>
+<p>下面的矩阵a是全零，矩阵b是全1，矩阵c是规定步数的矩阵(即10,12,14,16,18,但是不包括20)，矩阵d我们用reshape方法尝试把一个arange数组重新编制为3，4。 <strong>特别要注意arange后面的两个数相乘要跟数组中所有数相等，否则会报错。</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">a = np.zeros((<span class="number">3</span>,<span class="number">4</span>))</span><br><span class="line">b = np.ones((<span class="number">5</span>,<span class="number">6</span>),dtype=float)</span><br><span class="line">c = np.arange(<span class="number">10</span>,<span class="number">20</span>,<span class="number">2</span>)  <span class="comment">#从10到20，步长为2</span></span><br><span class="line">d = np.arange(<span class="number">12</span>).reshape((<span class="number">3</span>,<span class="number">4</span>))  <span class="comment">#reshape可以将指定的数列改造成矩阵</span></span><br><span class="line"></span><br><span class="line">print(a)</span><br><span class="line">print(b)</span><br><span class="line">print(c)</span><br><span class="line">print(d)</span><br></pre></td></tr></table></figure>
+<p>我们看下程序运行结果。<br><img src="/image/arange.jpg" alt="arange"></p>
+<h1 id="numpy运算"><a href="#numpy运算" class="headerlink" title="numpy运算"></a>numpy运算</h1><h2 id="numpy的加减法"><a href="#numpy的加减法" class="headerlink" title="numpy的加减法"></a>numpy的加减法</h2><p>下面我们先构造a,b两个array,然后进行减法，代码如下。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">a = np.array([<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>,<span class="number">40</span>])</span><br><span class="line">b = np.arange(<span class="number">1</span>,<span class="number">5</span>)</span><br><span class="line">c = a-b</span><br><span class="line">print(a,b)</span><br><span class="line">print(c)</span><br></pre></td></tr></table></figure>
+<p>我们看一下程序运行效果。<br><img src="/image/%E5%8A%A0%E6%B3%95.JPG" alt="加法"></p>
+<h2 id="numpy矩阵乘法"><a href="#numpy矩阵乘法" class="headerlink" title="numpy矩阵乘法"></a>numpy矩阵乘法</h2><p>下面我们看一下矩阵乘法，a@b表示矩阵乘积。a是2*3矩阵，b是3*2矩阵，所以乘积应该是2*2矩阵。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">a = np.array([[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],</span><br><span class="line">             [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]])</span><br><span class="line">b = np.arange(<span class="number">1</span>,<span class="number">7</span>).reshape(<span class="number">3</span>,<span class="number">2</span>)</span><br><span class="line">d = a @ b</span><br><span class="line">print(<span class="string">'a:\n'</span>,a)</span><br><span class="line">print(<span class="string">'b:\n'</span>,b)</span><br><span class="line">print(<span class="string">'a和b的内积:\n'</span>,d)</span><br></pre></td></tr></table></figure>
+<p>我们看一下矩阵乘积的运行效果。<br><img src="/image/%E4%B9%98%E6%B3%95.JPG" alt="乘法"></p>
+<h2 id="numpy矩阵乘方"><a href="#numpy矩阵乘方" class="headerlink" title="numpy矩阵乘方"></a>numpy矩阵乘方</h2><p>矩阵乘方的运算是把每一个数字对应计算乘方。运算符为两个*,如b的平方写作b**2。我们下面来计算一下b的立方。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">a = np.array([[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],</span><br><span class="line">             [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]])</span><br><span class="line">b = np.arange(<span class="number">1</span>,<span class="number">7</span>).reshape(<span class="number">3</span>,<span class="number">2</span>)</span><br><span class="line">c = b**<span class="number">3</span></span><br><span class="line"><span class="comment">#print('a:\n',a)</span></span><br><span class="line">print(<span class="string">'b:\n'</span>,b)</span><br><span class="line">print(<span class="string">'b的立方:\n'</span>,c)</span><br></pre></td></tr></table></figure>
+<p>我们看一下b的立方的运行效果。<br><img src="/image/%E4%B8%89%E6%AC%A1%E6%96%B9.JPG" alt="三次方"></p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>学习经验 - numpy</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>第一篇博客</title>
     <url>/2020/02/25/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<h1 id="这篇博客与我的故事"><a href="#这篇博客与我的故事" class="headerlink" title="这篇博客与我的故事"></a>这篇博客与我的故事</h1><h2 id="搭建博客的冲动"><a href="#搭建博客的冲动" class="headerlink" title="搭建博客的冲动"></a>搭建博客的冲动</h2><a id="more"></a>
