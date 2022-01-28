@@ -24,10 +24,9 @@
 <p>我们看一下b的立方的运行效果。<br><img src="/image/%E4%B8%89%E6%AC%A1%E6%96%B9.JPG" alt="三次方"></p>
 ]]></content>
       <categories>
-        <category>学习</category>
+        <category>技术分享</category>
       </categories>
       <tags>
-        <tag>学习经验</tag>
         <tag>python</tag>
         <tag>numpy</tag>
       </tags>
@@ -35,14 +34,12 @@
   <entry>
     <title>第一篇博客</title>
     <url>/2020/02/25/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<h1 id="这篇博客与我的故事"><a href="#这篇博客与我的故事" class="headerlink" title="这篇博客与我的故事"></a>这篇博客与我的故事</h1><h2 id="搭建博客的冲动"><a href="#搭建博客的冲动" class="headerlink" title="搭建博客的冲动"></a>搭建博客的冲动</h2><a id="more"></a>
-<p><img src="/image/%E8%83%A1%E6%97%BA%E6%B4%8B%E8%AF%81%E4%BB%B6%E7%85%A7.JPG" alt="我的证件照"></p>
+    <content><![CDATA[<h1 id="这篇博客与我的故事"><a href="#这篇博客与我的故事" class="headerlink" title="这篇博客与我的故事"></a>这篇博客与我的故事</h1><p>这天因为疫情封城，我一个人在家，突然萌发了搭一个博客的想法。这样以后不仅可以在博客上分享一些技术的细节，还可以把自己的日常生活体验，读书的感悟，对人生的思考，<br>都记录下来，没准有人会有兴趣呢，哈哈。</p>
 ]]></content>
       <categories>
-        <category>前端</category>
+        <category>日常分享</category>
       </categories>
       <tags>
-        <tag>学习经验</tag>
         <tag>分享</tag>
       </tags>
   </entry>
